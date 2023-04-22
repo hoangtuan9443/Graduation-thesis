@@ -1,0 +1,43 @@
+{
+    "dv": {
+        "dv01": {
+            "Action": "add",
+            "IDs": {
+                "1": {
+                    "CreatedDate": "19/03/2023",
+                    "CreatedTime": "02:19:29",
+                    "Dob": "18/02/2001",
+                    "Id": "272896973",
+                    "Name": "Hoang Tuan",
+                    "Phone": "0904870509"
+                },
+                "18": {
+                    "CreatedDate": "19/03/2023",
+                    "CreatedTime": "02:19:29",
+                    "Dob": "18/02/2001",
+                    "Id": "272896973",
+                    "Name": "Hoang Tuan",
+                    "Phone": "0904870509"
+                }
+            },
+            "IDtemp": 1,
+            "Key": "180201",
+            "PASS": "18022001",
+            "SSID": "hoangtuan1802",
+            "door": 0,
+            "statusDelete": 1,
+            "waitScan": 0
+        },
+        "dv02": {}
+    },
+    "listUsedId": {
+       "dv01": {
+            "06-04-2023": {
+                "23:20:19": {"id": 1},
+                "23:20:25": {"id": 1}
+            }
+       },
+       "dv02": {}
+    }
+}
+

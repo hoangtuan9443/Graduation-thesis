@@ -1,0 +1,11 @@
+.customSearchInput{
+    border: 1px solid rgba(0,0,0,.4);
+    padding: 3px;
+    border-radius: 20px;
+}
+
+.customSearchInput__input:focus{
+    outline: none;
+    box-shadow: none;
+    border-inline-end-width: 0;
+}

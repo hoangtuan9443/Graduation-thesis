@@ -1,0 +1,20 @@
+.headTitle{
+    width: 100%;
+    display: flex;
+    background: rgba(33,138,214);
+    color: #fff;
+}
+
+.headTitle__box{
+    padding: 10px;
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.ViewContainer{
+    padding: 10px 5px 10px 10px;
+}
+
+.MenuChange{
+    width: 70px;
+}

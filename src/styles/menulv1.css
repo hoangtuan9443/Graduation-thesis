@@ -1,0 +1,64 @@
+.menulv1{
+    width: 240px;
+    background: #0762a5;
+    padding-left: 5px;
+    padding-right: 5px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.menulv1__box, .menulv1__avt{
+    width: 100%;
+    padding-bottom: 22px;
+    margin-top: 10px;
+    cursor: pointer;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.menulv1__avt{
+    border-bottom: 1px solid rgba(255,255,255, .2);
+    padding-bottom: 5px;
+    margin-top: 5px;
+    padding-left: 20px;
+}
+
+.menulv1__box{
+    flex: 1
+}
+
+.menulv1__logout{
+    width: 100%;
+    margin-bottom: 25px;
+    cursor: pointer;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.menulv1__logout:hover{
+    background: rgba(255, 255, 255, .4);
+    border-radius: 5px;
+}
+
+.ant-menu-inline .ant-menu-item:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, .4);
+    border-radius: 5px;
+}
+
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected{
+    background: rgba(255, 255, 255, .4);
+    border-radius: 5px;
+}
+
+.ant-menu-inline .ant-menu-item::after{
+    border: none;
+}
+
+.ant-menu-light.ant-menu-root.ant-menu-inline{
+    border-inline-end: none
+}
+
+

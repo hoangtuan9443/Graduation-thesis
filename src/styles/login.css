@@ -1,0 +1,22 @@
+.login, .register{
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login__form, .register__form{
+    width: 454px;
+    margin: 0 auto;
+    padding: 40px;
+    height: 588px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 2px 25px rgb(0,0,0,.2);
+    position: relative;
+    border: 1px solid #218ad6;
+}
