@@ -1,4 +1,4 @@
-import {useState, useEffect, useRef} from 'react'
+import {useState, useEffect} from 'react'
 import { FileTextOutlined, ClusterOutlined, UnorderedListOutlined, DeleteOutlined, ContactsOutlined, TableOutlined, WifiOutlined } from '@ant-design/icons'
 import { Typography, Table, Pagination, Modal, Tag, Input, Select, DatePicker, Row, Col } from 'antd'
 
@@ -7,7 +7,7 @@ import MenuLv1 from '../shared/MenuLv1'
 import Container from '../shared/Container'
 import HeadContainer from '../shared/HeadContainer'
 import BreadCrumb from '../shared/BreadCrumb'
-import {database, dbRef, putData, removeData} from '../../Firebase/config.js'
+import { dbRef, putData, removeData } from '../../Firebase/config.js'
 import { get, onValue } from 'firebase/database'
 import moment from 'moment/moment'
 
@@ -241,7 +241,7 @@ function Home() {
             title: 'Quản lý lịch sử',
             key: 'quanlylichsu',
             icon: <ContactsOutlined style={{fontSize: 20, color: '#fff', paddingTop: 2}} />
-        }
+        },
     ]
 
     const columnTableQLTB = [
@@ -461,13 +461,13 @@ function Home() {
     return (
         <>
             <Container>
-                <MenuLv1 activeMenuItem={activeMenuItem} setActiveMenuItem={setActiveMenuItem} style={`${isMenuChange ? 'MenuChange' : ''}`} menus={menu}/>
+                <MenuLv1 setIsOpenChangePw={setIsOpenChangePw} setIsOpenChangeWifi={setIsOpenChangeWifi} activeMenuItem={activeMenuItem} setActiveMenuItem={setActiveMenuItem} style={`${isMenuChange ? 'MenuChange' : ''}`} menus={menu}/>
                 <div style={{width: '100%', zIndex: 20}}>
-                    <div className='headTitle'>
+                    {/* <div className='headTitle'> */}
                         {/* <UnorderedListOutlined className='headTitle__box' onClick={() => setIsMenuChange(true)}/> */}
-                        <TableOutlined className='headTitle__box' onClick={() => setIsOpenChangePw(true)}/>
-                        <WifiOutlined className='headTitle__box' onClick={() => setIsOpenChangeWifi(true)}/>
-                    </div>
+                        {/* <TableOutlined className='headTitle__box' onClick={() => setIsOpenChangePw(true)}/>
+                        <WifiOutlined className='headTitle__box' onClick={() => setIsOpenChangeWifi(true)}/> */}
+                    {/* </div> */}
                     <div className='ViewContainer'>
                         {
                             activeMenuItem === 'quanlythietbi' && 

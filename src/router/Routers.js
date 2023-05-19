@@ -3,7 +3,6 @@ import { Route, Routes, Navigate } from 'react-router-dom'
 
 import Home from '../components/Dashboard' 
 import Login from '../components/Login'
-import Register from '../components/Register'
 
 function Routers() {
     return (
@@ -11,7 +10,6 @@ function Routers() {
             <Route path='/' element={<Navigate to='/home' />} />
             <Route path='/home' element={<Home />} />
             <Route path='/login' element={<Login />} />
-            <Route path='/register' element={<Register />} />
         </Routes>
     )
 }
