@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getDatabase, onValue, ref, remove, set } from "firebase/database"
+import { get, getDatabase, onValue, ref, remove, set, query, limitToFirst } from "firebase/database"
 
 const firebaseConfig = {
     apiKey: process.env.API_KEY,
@@ -16,7 +16,9 @@ const app = initializeApp(firebaseConfig);
 const database = getDatabase(app)
 const dbRef = ref(database)
 
+
 const putData = (link, data) => set(ref(database, link), data)
 const removeData = (link, success = () => {}) => remove(ref(database, link)).then(success).catch(err => console.log(err))
+const getValueAuto = (link, fc, cancelfc) => onValue(ref(database, link), fc, cancelfc)
 
-export {database, dbRef, putData, removeData}
+export {database, dbRef, putData, removeData, getValueAuto}

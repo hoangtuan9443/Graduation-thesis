@@ -14,16 +14,21 @@ function Login() {
 
     const [waitSendCode, setWaitSendCode] = useState(false)
     const [openTypeCode, setOpenTypeCode] = useState(false)
+    const [loading, setLoading] = useState(false)
     const [codeLogin, setCodeLogin] = useState({1: '', 2: '', 3: '', 4: '', 5: '', 6: ''})
     const [emailLogin, setEmailLogin] = useState('')
     const [typeError, setTypeError] = useState('')
     
     const handleLogin = async () => {
         if(emailLogin && CheckEmail(emailLogin)) {
+            setLoading(true)
             await get(dbRef).then(snapshot => {
-                snapshot.child('/emailManagement').forEach(node => {
-                    setTypeError(node.key)
+                const size = snapshot.size
+                let count = 0
+                snapshot.child('/emailManagement/list').forEach(node => {
+                    count++
                     if(emailLogin === node.key.replaceAll(" ", ".")) {
+                        setTypeError('')
                         return fetch('http://localhost:4000/api/email/send', {
                             method: "POST",
                             mode: "cors",
@@ -32,18 +37,19 @@ function Login() {
                             },
                             body: JSON.stringify({email: emailLogin})
                         }).then(response => {
-                            setTypeError('')
+                            setLoading(false)
                             return setOpenTypeCode(true)
                         })
                         .catch(error =>{
                             console.log(error)
                         })
                     }
+                    if(count === size){
+                        setTypeError('wrongEmail')
+                        setLoading(false)
+                    }
                 })
             })
-            if(!openTypeCode && typeError){
-                setTypeError('wrongEmail')
-            }
         }else {
             if(!emailLogin) {
                 setTypeError('noType')
@@ -62,7 +68,7 @@ function Login() {
     const handleSendCode = () => {
         if(codeLogin[1] && codeLogin[2] && codeLogin[3] && codeLogin[4] && codeLogin[5] && codeLogin[6]){
             get(dbRef).then(snapshot => {
-                const codeDatabase = snapshot.child(`/emailManagement/${emailLogin.replace(".", " ")}`).val()
+                const codeDatabase = snapshot.child(`/emailManagement/list/${emailLogin.replaceAll(".", " ")}`).val()
                 const codeUser = codeLogin[1] + codeLogin[2] + codeLogin[3] + codeLogin[4] + codeLogin[5] + codeLogin[6]
                 if(codeDatabase === Number(codeUser)) {
                     setOpenTypeCode(false)
@@ -142,6 +148,7 @@ function Login() {
                         <Button
                             type='primary'
                             style={{width: '100%'}}
+                            loading={loading}
                             onClick={handleLogin}
                         >
                                 ĐĂNG NHẬP
