@@ -74,16 +74,21 @@ function Login() {
                     setOpenTypeCode(false)
                     setTypeError('')
                     setCodeLogin({1: '', 2: '', 3: '', 4: '', 5: '', 6: ''})
+                    localStorage.setItem('account', emailLogin)
                     navigate('/home')
                 }else{
                     setTypeError("CodeLoginError")
                 }
             })
+        }else{
+            setTypeError("CodeLoginError")
         }
     }
 
     const handleGetCodeAgain = () => {
         setWaitSendCode(true)
+        setCodeLogin({1: '', 2: '', 3: '', 4: '', 5: '', 6: ''})
+        setTypeError('')
         fetch('http://localhost:4000/api/email/send', {
             method: "POST",
             mode: "cors",

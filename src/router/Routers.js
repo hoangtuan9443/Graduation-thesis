@@ -5,10 +5,20 @@ import Home from '../components/Dashboard'
 import Login from '../components/Login'
 
 function Routers() {
+    let accountExist = localStorage.getItem('account')
+    
     return (
         <Routes>
-            <Route path='/' element={<Navigate to='/home' />} />
-            <Route path='/home' element={<Home />} />
+            {
+                accountExist 
+                ? <Route path='/' element={<Navigate to='/home' />} /> 
+                : <Route path='/' element={<Navigate to='/login' />} />
+            }
+            {
+                accountExist 
+                ? <Route path='/home' element={<Home />} />
+                : <Route path='/home' element={<Navigate to='/login' />} />
+            }
             <Route path='/login' element={<Login />} />
         </Routes>
     )

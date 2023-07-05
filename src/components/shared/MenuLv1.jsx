@@ -34,6 +34,7 @@ function MenuLv1({
     }
 
     const handleOk = () => {
+        localStorage.removeItem('account')
         navigate('/login')
     } 
 
