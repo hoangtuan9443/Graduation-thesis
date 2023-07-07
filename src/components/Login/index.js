@@ -76,6 +76,7 @@ function Login() {
                     setCodeLogin({1: '', 2: '', 3: '', 4: '', 5: '', 6: ''})
                     localStorage.setItem('account', emailLogin)
                     navigate('/home')
+                    window.location.reload()
                 }else{
                     setTypeError("CodeLoginError")
                 }
